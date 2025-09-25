@@ -12,7 +12,7 @@ pipeline {
 
   options {
     timestamps()
-    ansiColor('xterm')
+    //ansiColor('xterm')
     disableConcurrentBuilds()
   }
 
@@ -25,7 +25,9 @@ pipeline {
 
     stage('Build JAR') {
       steps {
-        sh 'mvn -B -DskipTests clean package'
+        wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
+          sh 'mvn -B -DskipTests clean package'
+        }
       }
       post {
         success {
