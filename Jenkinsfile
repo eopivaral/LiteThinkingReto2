@@ -25,11 +25,11 @@ pipeline {
 
     stage('Build JAR') {
       steps {
-        script {
+        /*script {
           wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
             sh 'mvn -B -DskipTests clean package'
           }
-        }
+        }*/
       }
       post {
         success {
