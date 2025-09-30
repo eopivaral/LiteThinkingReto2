@@ -24,13 +24,13 @@ pipeline {
     }
 
     stage('Build JAR') {
-      steps {
-        /*script {
+      /*steps {
+        script {
           wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
             sh 'mvn -B -DskipTests clean package'
           }
-        }*/
-      }
+        }
+      }*/
       post {
         success {
           archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
